@@ -1,0 +1,33 @@
+#Application Configuration
+server:
+  port: 8080
+  error:
+    include-message: always
+
+spring:
+  sql.init.mode: always
+  h2:
+    console:
+      enable: true
+
+  datasource:
+    url: jdbc:h2:mem:productDB;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    driverClassName: org.h2.Driver
+    platform: h2
+    username: sa
+    password:
+
+
+  jpa:
+    show-sql: true
+    # Carga de data.sql
+    defer-datasource-initialization: true
+    hibernate:
+      dll-auto: create-drop
+      show_sql: true
+      use_sql_comments: false
+      format_sql: false
+
+logging:
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} ${LOG_LEVEL_PATTERN:-%5p} %m%n"
